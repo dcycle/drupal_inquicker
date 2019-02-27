@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Handy procedural wrapper code and potential hook implementations.
+ */
+
+use Drupal\drupal_inquicker\Inquicker\Inquicker;
+use Drupal\Core\Entity\EntityInterface;
+
+function inquicker() : Inquicker {
+  return Inquicker::instance();
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function drupal_inquicker_requirements($phase) {
+  return inquicker()->hookRequirements($phase);
+}
