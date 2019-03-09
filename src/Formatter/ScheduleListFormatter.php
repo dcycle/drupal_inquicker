@@ -26,7 +26,7 @@ class ScheduleListFormatter extends Formatter {
   public function formatValidatedSource($data) {
     $return['types'] = [];
     foreach ($data as $item) {
-      $return['times'] = $this->scheduleFormatter()->format($item);
+      $return['times'][] = $this->scheduleFormatter()->format($item);
       $return['types'] = array_merge($return['types'], $item->types());
     }
     return $return;

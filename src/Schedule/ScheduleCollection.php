@@ -21,7 +21,11 @@ class ScheduleCollection extends Collection {
     foreach ($data as $group) {
       foreach ($group['availableTimes'] as $date) {
         foreach ($date['times'] as $time) {
-          $this->add([new Schedule($time)]);
+          foreach ($time['appointmentTypes'] as $type) {
+            $this->add([
+              new Schedule($time['time'], $type, $group['registrationUrl']),
+            ]);
+          }
         }
       }
     }
