@@ -28,6 +28,10 @@ To fetch all locations:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
 
+To fetch all facilities:
+
+    drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('facilities')))"
+
 To fetch all service lines:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('service_lines')))"
