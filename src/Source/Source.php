@@ -172,14 +172,18 @@ abstract class Source {
    *     'locations' => 'location_a,location_b',
    *     'service_lines' => 'service_line_a,service_line_b',
    *   ].
+   * @param string $default_type_name
+   *   Certain Inquicker appointments do not have a type; however we still
+   *   need to categorize them and format them as if they did. For such cases,
+   *   set the desired human-readable name for output.
    *
    * @return ScheduleCollection
    *   All schedule times.
    *
    * @throws \Exception
    */
-  public function schedules(array $query = []) : ScheduleCollection {
-    return new ScheduleCollection($this->paged('/v2/schedules', $query));
+  public function schedules(array $query = [], $default_type_name = 'default') : ScheduleCollection {
+    return new ScheduleCollection($this->paged('/v2/schedules', $query), $default_type_name);
   }
 
   /**
