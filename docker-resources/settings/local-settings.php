@@ -21,3 +21,5 @@ $config['drupal_inquicker']['sources']['dummy'] = [
 if (file_exists('/unversioned-development-settings/settings.php')) {
   include '/unversioned-development-settings/settings.php';
 }
+
+$config_directories['sync'] = 'This has to exist to for drush cim --source to work correctly; it is not used';
