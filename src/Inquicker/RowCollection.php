@@ -16,6 +16,7 @@ class RowCollection extends Collection {
    *   Data from https://api.inquicker.com/v2/locations.
    */
   public function __construct(array $data) {
+    parent::__construct($data);
     $this->data = $data;
     foreach ($data as $location) {
       $this->add([new Row($location)]);

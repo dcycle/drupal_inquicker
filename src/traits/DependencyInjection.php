@@ -5,6 +5,7 @@ namespace Drupal\drupal_inquicker\traits;
 use Drupal\drupal_inquicker\Formatter\KeyListFormatter;
 use Drupal\drupal_inquicker\Formatter\RequirementsFormatter;
 use Drupal\drupal_inquicker\Formatter\ResponseListFormatter;
+use Drupal\drupal_inquicker\Formatter\DetailedResponseListFormatter;
 use Drupal\drupal_inquicker\Formatter\ScheduleFormatter;
 use Drupal\drupal_inquicker\Formatter\ScheduleListFormatter;
 // @codingStandardsIgnoreStart
@@ -21,6 +22,16 @@ use Drupal\drupal_inquicker\Inquicker\Inquicker;
  * can be mocked during tests.
  */
 trait DependencyInjection {
+
+  /**
+   * Get the DetailedResponseListFormatter singleton.
+   *
+   * @return DetailedResponseListFormatter
+   *   The DetailedResponseListFormatter singleton.
+   */
+  public function detailedResponseListFormatter() : DetailedResponseListFormatter {
+    return DetailedResponseListFormatter::instance();
+  }
 
   /**
    * Get the Inquicker app singleton.

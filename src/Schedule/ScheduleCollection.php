@@ -23,8 +23,6 @@ class ScheduleCollection extends Collection {
     parent::__construct();
     $this->data = $data;
 
-    $this->addDefaultAppointType($data, $default_type_name);
-
     foreach ($data as $group) {
       foreach ($group['availableTimes'] as $date) {
         foreach ($date['times'] as $time) {

@@ -24,9 +24,13 @@ Usage
 
 ### Step 4: You can now obtain data from Inquicker
 
-To fetch all locations:
+To fetch all location IDs:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
+
+To fetch all location detailed:
+
+    drush ev "print_r(inquicker()->detailedResponseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
 
 To fetch all facilities:
 
@@ -38,9 +42,15 @@ To fetch all service lines:
 
 To fetch all schedules for a location and service line:
 
-    LOCATION=my-location-id
+    LOCATION=my-location-id1,my-location-id2
     SERVICELINE=my-service-line-id
     drush ev "print_r(inquicker()->scheduleListFormatter()->format(inquicker()->source('default')->schedules(['locations' => '$LOCATION', 'service_lines' => '$SERVICELINE'])))"
+
+To fetch all locations within a latitude/longitude:
+
+    LAT=41.4620
+    LON=-81.0737
+    drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('locations', ['latitude' => $LAT, 'longitude' => $LON])))"
 
 Issue queue and pull requests
 -----

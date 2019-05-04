@@ -7,7 +7,7 @@ use Drupal\drupal_inquicker\traits\Singleton;
 /**
  * Formats a RowCollection as an array of detailed info keyed by IDs.
  */
-class ResponseListFormatter extends AbstractResponseListFormatter {
+class DetailedResponseListFormatter extends AbstractResponseListFormatter {
 
   use Singleton;
 
@@ -15,7 +15,7 @@ class ResponseListFormatter extends AbstractResponseListFormatter {
    * {@inheritdoc}
    */
   public function formatIndividualItem(object $item) {
-    return $item->id();
+    return $item->data;
   }
 
 }
