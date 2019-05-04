@@ -3,7 +3,6 @@
 namespace Drupal\drupal_inquicker\Formatter;
 
 use Drupal\drupal_inquicker\Inquicker\RowCollection;
-use Drupal\drupal_inquicker\traits\Singleton;
 
 /**
  * Formats a RowCollection as an array of ids.

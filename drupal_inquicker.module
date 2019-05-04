@@ -18,3 +18,15 @@ function inquicker() : Inquicker {
 function drupal_inquicker_requirements($phase) {
   return inquicker()->hookRequirements($phase);
 }
+
+/**
+ * Implements hook_drupal_inquicker_alter_schedule().
+ */
+function drupal_inquicker_drupal_inquicker_alter_schedule(array $time, array $group) : array {
+  return  [
+    'provider' => $group['provider'],
+    'location' => $group['location'],
+    'facility' => $group['facility'],
+    'service' => $group['service'],
+  ];
+}

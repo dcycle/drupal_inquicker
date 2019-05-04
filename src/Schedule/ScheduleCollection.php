@@ -31,7 +31,7 @@ class ScheduleCollection extends Collection {
 
           foreach ($time['appointmentTypes'] as $type) {
             $this->add([
-              new Schedule($time['time'], $type, $group['registrationUrl']),
+              new Schedule($time['time'], $type, $group['registrationUrl'], $this->invokeHook('drupal_inquicker_alter_schedule', [$time, $group])),
             ]);
           }
         }

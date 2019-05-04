@@ -62,6 +62,13 @@ trait CommonUtilities {
   }
 
   /**
+   * Mockable wrapper around \Drupal::moduleHandler()->invokeAll().
+   */
+  public function invokeHook(string $name, array $args) : array {
+    return \Drupal::moduleHandler()->invokeAll($name, $args);
+  }
+
+  /**
    * Mockable wrapper around Json::decode().
    */
   public function jsonDecode(string $json) {

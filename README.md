@@ -28,7 +28,7 @@ To fetch all location IDs:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
 
-To fetch all location detailed:
+To fetch all detailed location information:
 
     drush ev "print_r(inquicker()->detailedResponseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
 
