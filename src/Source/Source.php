@@ -76,14 +76,20 @@ abstract class Source {
    * @param string $type
    *   A type such as "schedules", "languages", "appointment_types",
    *   "service_lines", "regions", "locations", "providers", "facilities".
+   * @param array $query
+   *   Associative array of query filters, for example if $type is
+   *   'schedules', $query might be ['service_lines' => 'primary-care'] as
+   *   per https://docs.inquicker.com/api/v2.
+   * @param bool $first_page_only
+   *   If TRUE return the first page only; otherwise return all results.
    *
    * @return RowCollection
    *    A row collection from Inquicker.
    *
    * @throws \Throwable
    */
-  public function rows(string $type, array $query = []) : RowCollection {
-    return new RowCollection($this->paged('/v2/' . $type, $query));
+  public function rows(string $type, array $query = [], bool $first_page_only = FALSE) : RowCollection {
+    return new RowCollection($this->paged('/v2/' . $type, $query, $first_page_only));
   }
 
   /**
@@ -108,14 +114,20 @@ abstract class Source {
    *
    * @param string $path
    *   A path such as /v2/locations.
+   * @param array $query
+   *   Associative array of query filters, for example if $type is
+   *   'schedules', $query might be ['service_lines' => 'primary-care'] as
+   *   per https://docs.inquicker.com/api/v2.
+   * @param bool $first_page_only
+   *   If TRUE return the first page only; otherwise return all results.
    *
    * @return array
    *   All responses from all pages.
    *
    * @throws \Exception
    */
-  public function paged(string $path, array $query = []) : array {
-    return $this->pagedRecursive($path, $this->modifyQuery($query));
+  public function paged(string $path, array $query = [], bool $first_page_only = FALSE) : array {
+    return $this->pagedRecursive($path, $this->modifyQuery($query), $first_page_only);
   }
 
   /**
@@ -125,13 +137,19 @@ abstract class Source {
    *
    * @param string $path
    *   A path such as /v2/locations.
+   * @param array $query
+   *   Associative array of query filters, for example if $type is
+   *   'schedules', $query might be ['service_lines' => 'primary-care'] as
+   *   per https://docs.inquicker.com/api/v2.
+   * @param bool $first_page_only
+   *   If TRUE return the first page only; otherwise return all results.
    *
    * @return array
    *   All responses from all pages.
    *
    * @throws \Exception
    */
-  public function pagedRecursive(string $path, array $query = []) : array {
+  public function pagedRecursive(string $path, array $query = [], bool $first_page_only = FALSE) : array {
     $data = [];
     $url = $this->url() . '/' . $path;
     $page = $this->jsonDecode((string) $this->response($url, $query ? [
@@ -143,7 +161,7 @@ abstract class Source {
       ]));
     }
     $data = empty($page['data']) ? [] : $page['data'];
-    if (!empty($page['metadata']['pagination']['nextPage'])) {
+    if (!$first_page_only && !empty($page['metadata']['pagination']['nextPage'])) {
       $data = array_merge($data, $this->pagedRecursive($page['metadata']['pagination']['nextPage']));
     }
     return $data;

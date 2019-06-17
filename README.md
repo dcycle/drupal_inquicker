@@ -32,6 +32,10 @@ To fetch all detailed location information:
 
     drush ev "print_r(inquicker()->detailedResponseListFormatter()->format(inquicker()->source('default')->rows('locations')))"
 
+To fetch all detailed provider information:
+
+    drush ev "print_r(inquicker()->detailedResponseListFormatter()->format(inquicker()->source('default')->rows('providers')))"
+
 To fetch all facilities:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('facilities')))"
@@ -39,6 +43,11 @@ To fetch all facilities:
 To fetch all service lines:
 
     drush ev "print_r(inquicker()->responseListFormatter()->format(inquicker()->source('default')->rows('service_lines')))"
+
+To fetch all schedules for a given provider:
+
+    PROVIDER=some-provider-id
+    drush ev "print_r(inquicker()->detailedResponseListFormatter()->format(inquicker()->source('default')->rows('schedules', ['providers' => '$PROVIDER'])))"
 
 To fetch all schedules for a location and service line:
 
