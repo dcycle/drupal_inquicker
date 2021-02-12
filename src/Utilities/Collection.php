@@ -2,16 +2,13 @@
 
 namespace Drupal\drupal_inquicker\Utilities;
 
-use ArrayIterator;
-use Countable;
 use Drupal\drupal_inquicker\traits\CommonUtilities;
 use Drupal\drupal_inquicker\traits\DependencyInjection;
-use IteratorAggregate;
 
 /**
  * Collections can be used as more structured wrappers around arrays.
  */
-abstract class Collection implements IteratorAggregate, Countable {
+abstract class Collection implements \IteratorAggregate, \Countable {
 
   use CommonUtilities;
   use DependencyInjection;
@@ -68,7 +65,7 @@ abstract class Collection implements IteratorAggregate, Countable {
   /**
    * Get an iterator for this collection.
    *
-   * @return ArrayIterator
+   * @return \ArrayIterator
    *   An array iterator.
    */
   public function getIterator() {

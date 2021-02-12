@@ -4,7 +4,6 @@ namespace Drupal\drupal_inquicker\Formatter;
 
 use Drupal\drupal_inquicker\Source\SourceCollection;
 use Drupal\drupal_inquicker\traits\Singleton;
-use Traversable;
 
 /**
  * Formats a SourceCollection as expected by hook_requirements().
@@ -31,13 +30,13 @@ class RequirementsFormatter extends Formatter {
   /**
    * Get the description to display in the status report.
    *
-   * @param Traversable $all
+   * @param \Traversable $all
    *   The full list of Sources.
-   * @param Traversable $live
+   * @param \Traversable $live
    *   The live Sources only.
-   * @param Traversable $valid
+   * @param \Traversable $valid
    *   The valid Sources only.
-   * @param Traversable $invalid
+   * @param \Traversable $invalid
    *   The invalid Sources only.
    *
    * @return string

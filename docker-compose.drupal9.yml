@@ -1,0 +1,8 @@
+---
+version: '2'
+
+services:
+  drupal:
+    build:
+      context: .
+      dockerfile: Dockerfile9

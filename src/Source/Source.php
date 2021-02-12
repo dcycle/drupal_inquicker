@@ -2,9 +2,7 @@
 
 namespace Drupal\drupal_inquicker\Source;
 
-// @codingStandardsIgnoreStart
 use Drupal\drupal_inquicker\Inquicker\RowCollection;
-// @codingStandardsIgnoreEnd
 use Drupal\drupal_inquicker\Schedule\ScheduleCollection;
 use Drupal\drupal_inquicker\traits\CommonUtilities;
 use Drupal\drupal_inquicker\traits\DependencyInjection;
@@ -45,9 +43,7 @@ abstract class Source {
    */
   public function config(string $key) {
     if (empty($this->config[$key])) {
-      throw new \Exception($this->t('key @k is required in config', [
-        '@k' => $key,
-      ]));
+      throw new \Exception('key ' . $key . ' is required in config');
     }
     return $this->config[$key];
   }
@@ -83,8 +79,8 @@ abstract class Source {
    * @param bool $first_page_only
    *   If TRUE return the first page only; otherwise return all results.
    *
-   * @return RowCollection
-   *    A row collection from Inquicker.
+   * @return \Drupal\drupal_inquicker\Inquicker\RowCollection
+   *   A row collection from Inquicker.
    *
    * @throws \Throwable
    */
@@ -156,9 +152,7 @@ abstract class Source {
       'query' => $query,
     ] : [])->getBody());
     if ($page['metadata']['statusCode'] != 200) {
-      throw new \Exception($this->t('Could not get @p', [
-        '@p' => $path,
-      ]));
+      throw new \Exception('Could not get ' . $path);
     }
     $data = empty($page['data']) ? [] : $page['data'];
     if (!$first_page_only && !empty($page['metadata']['pagination']['nextPage'])) {
@@ -180,7 +174,7 @@ abstract class Source {
    *
    * @throws \Exception
    */
-  abstract public function response($uri, $options = []);
+  abstract public function response($uri, array $options = []);
 
   /**
    * Get all Schedules for this Source.
@@ -195,7 +189,7 @@ abstract class Source {
    *   need to categorize them and format them as if they did. For such cases,
    *   set the desired human-readable name for output.
    *
-   * @return ScheduleCollection
+   * @return \Drupal\drupal_inquicker\Schedule\ScheduleCollection
    *   All schedule times.
    *
    * @throws \Exception

@@ -2,4 +2,5 @@ name: Drupal Inquicker
 type: module
 description: 'Import information from Drupal to Inquicker.'
 core: '8.x'
+core_version_requirement: ^8 || ^9
 php: 7
