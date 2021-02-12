@@ -34,7 +34,7 @@ class InvalidSource extends Source {
   /**
    * {@inheritdoc}
    */
-  public function response($uri, $options = []) {
+  public function response($uri, array $options = []) {
     throw new \Exception('An invalid source cannot get a response.');
   }
 
@@ -42,10 +42,7 @@ class InvalidSource extends Source {
    * {@inheritdoc}
    */
   public function validate() {
-    throw new \Exception($this->t('This source is invalid because @r; see ./README.md: !d', [
-      '@r' => $this->reason,
-      '!d' => $this->jsonEncode($this->getConfig()),
-    ]));
+    throw new \Exception('This source is invalid because ' . $this->reason . '; see ./README.md: ' . $this->jsonEncode($this->getConfig()));
   }
 
 }

@@ -8,9 +8,7 @@ use Drupal\drupal_inquicker\Formatter\ResponseListFormatter;
 use Drupal\drupal_inquicker\Formatter\DetailedResponseListFormatter;
 use Drupal\drupal_inquicker\Formatter\ScheduleFormatter;
 use Drupal\drupal_inquicker\Formatter\ScheduleListFormatter;
-// @codingStandardsIgnoreStart
 use Drupal\drupal_inquicker\Source\SourceCollection;
-// @codingStandardsIgnoreEnd
 use Drupal\drupal_inquicker\Source\SourceCollectionFactory;
 use Drupal\drupal_inquicker\Source\SourceFactory;
 use Drupal\drupal_inquicker\Inquicker\Inquicker;
@@ -26,7 +24,7 @@ trait DependencyInjection {
   /**
    * Get the DetailedResponseListFormatter singleton.
    *
-   * @return DetailedResponseListFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\DetailedResponseListFormatter
    *   The DetailedResponseListFormatter singleton.
    */
   public function detailedResponseListFormatter() : DetailedResponseListFormatter {
@@ -36,7 +34,7 @@ trait DependencyInjection {
   /**
    * Get the Inquicker app singleton.
    *
-   * @return Inquicker
+   * @return \Drupal\drupal_inquicker\Inquicker\Inquicker
    *   The Inquicker singleton.
    */
   public function inquicker() : Inquicker {
@@ -46,7 +44,7 @@ trait DependencyInjection {
   /**
    * Get the KeyListFormatter singleton.
    *
-   * @return KeyListFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\KeyListFormatter
    *   The KeyListFormatter singleton.
    */
   public function keyListFormatter() : KeyListFormatter {
@@ -74,7 +72,7 @@ trait DependencyInjection {
   /**
    * Get the RequirementsFormatter singleton.
    *
-   * @return RequirementsFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\RequirementsFormatter
    *   The RequirementsFormatter singleton.
    */
   public function requirementsFormatter() : RequirementsFormatter {
@@ -140,7 +138,7 @@ trait DependencyInjection {
   /**
    * Get the ResponseListFormatter singleton.
    *
-   * @return ResponseListFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\ResponseListFormatter
    *   The ResponseListFormatter singleton.
    */
   public function responseListFormatter() : ResponseListFormatter {
@@ -150,7 +148,7 @@ trait DependencyInjection {
   /**
    * Get the ScheduleFormatter singleton.
    *
-   * @return ScheduleFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\ScheduleFormatter
    *   The ScheduleFormatter singleton.
    */
   public function scheduleFormatter() : ScheduleFormatter {
@@ -160,7 +158,7 @@ trait DependencyInjection {
   /**
    * Get the ScheduleListFormatter singleton.
    *
-   * @return ScheduleListFormatter
+   * @return \Drupal\drupal_inquicker\Formatter\ScheduleListFormatter
    *   The ScheduleListFormatter singleton.
    */
   public function scheduleListFormatter() : ScheduleListFormatter {
@@ -170,7 +168,7 @@ trait DependencyInjection {
   /**
    * Get the SourceCollectionFactory singleton.
    *
-   * @return SourceCollectionFactory
+   * @return \Drupal\drupal_inquicker\Source\SourceCollectionFactory
    *   The SourceCollectionFactory singleton.
    */
   public function sourceCollectionFactory() : SourceCollectionFactory {
@@ -180,7 +178,7 @@ trait DependencyInjection {
   /**
    * Get the SourceFactory singleton.
    *
-   * @return SourceFactory
+   * @return \Drupal\drupal_inquicker\Source\SourceFactory
    *   The SourceFactory singleton.
    */
   public function sourceFactory() : SourceFactory {
@@ -190,7 +188,7 @@ trait DependencyInjection {
   /**
    * Get all Sources.
    *
-   * @return SourceCollection
+   * @return \Drupal\drupal_inquicker\Source\SourceCollection
    *   All Sources.
    *
    * @throws \Exception

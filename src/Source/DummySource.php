@@ -24,7 +24,7 @@ class DummySource extends Source {
   /**
    * {@inheritdoc}
    */
-  public function response($uri, $options = []) {
+  public function response($uri, array $options = []) {
     // @codingStandardsIgnoreStart
     return new class() {
       public function getBody() : string {

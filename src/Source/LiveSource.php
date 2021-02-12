@@ -38,7 +38,7 @@ class LiveSource extends Source {
   /**
    * {@inheritdoc}
    */
-  public function response($uri, $options = []) {
+  public function response($uri, array $options = []) {
     return $this->httpGet($uri, $options);
   }
 
