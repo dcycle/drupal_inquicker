@@ -5,7 +5,8 @@ FROM dcycle/drupal:8drush9
 RUN echo 'opcache.enable=0' >> /usr/local/etc/php/php.ini
 
 # Download contrib modules
-RUN composer require drupal/devel \
+RUN COMPOSER_MEMORY_LIMIT=-1 && composer require \
+  drupal/devel \
   drupal/devel_php
 
 RUN cp /var/www/html/sites/default/default.settings.php /var/www/html/sites/default/settings.php
