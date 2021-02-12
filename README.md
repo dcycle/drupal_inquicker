@@ -1,9 +1,9 @@
 Drupal Inquicker
 =====
 
-[![CircleCI](https://circleci.com/gh/dcycle/drupal_inquicker.svg?style=svg)](https://circleci.com/gh/dcycle/drupal_inquicker)
+[![CircleCI](https://circleci.com/gh/dcycle/drupal_inquicker/tree/2.x.svg?style=svg)](https://circleci.com/gh/dcycle/drupal_inquicker/tree/2.x)
 
-A Drupal 8 module which allows you to interact with the [Inquicker API v2](https://docs.inquicker.com/api/v2/).
+Allows you to interact with the [Inquicker API v2](https://docs.inquicker.com/api/v2/).
 
 This module provides no graphical user interface, caching or administration forms. It is for developers only.
 
