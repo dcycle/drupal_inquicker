@@ -42,7 +42,7 @@ class RequirementsFormatter extends Formatter {
    * @return string
    *   A descriptive string based on our sources.
    */
-  public function description(Traversable $all, Traversable $live, Traversable $valid, Traversable $invalid) : string {
+  public function description(\Traversable $all, \Traversable $live, \Traversable $valid, \Traversable $invalid) : string {
     if (count($invalid)) {
       return $this->t('There is at least one invalid source, @i; see ./README.md on how to fix this in your settings.php file.', [
         '@i' => $this->keyListFormatter()->format($invalid),
@@ -87,19 +87,19 @@ class RequirementsFormatter extends Formatter {
   /**
    * Get the severity to display in the status report.
    *
-   * @param Traversable $all
+   * @param \Traversable $all
    *   The full list of Sources.
-   * @param Traversable $live
+   * @param \Traversable $live
    *   The live Sources only.
-   * @param Traversable $valid
+   * @param \Traversable $valid
    *   The valid Sources only.
-   * @param Traversable $invalid
+   * @param \Traversable $invalid
    *   The invalid Sources only.
    *
    * @return int
    *   A severity.
    */
-  public function severity(Traversable $all, Traversable $live, Traversable $valid, Traversable $invalid) : int {
+  public function severity(\Traversable $all, \Traversable $live, \Traversable $valid, \Traversable $invalid) : int {
     if (count($invalid)) {
       return $this->requirementError();
     }

@@ -69,7 +69,7 @@ abstract class Collection implements \IteratorAggregate, \Countable {
    *   An array iterator.
    */
   public function getIterator() {
-    return new ArrayIterator($this->items);
+    return new \ArrayIterator($this->items);
   }
 
   /**

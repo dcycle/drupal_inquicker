@@ -21,6 +21,10 @@ echo " => Running unit tests on Drupal 8"
 echo ""
 ./scripts/php-unit-drupal.sh
 echo ""
+echo " => Running some tests on the running Drupal 8 environment"
+echo ""
+./scripts/test-running-environment.sh
+echo ""
 echo " => Destroying Drupal 8"
 echo ""
 docker-compose down -v
@@ -32,6 +36,10 @@ echo ""
 echo " => Running unit tests on Drupal 9"
 echo ""
 ./scripts/php-unit-drupal.sh
+echo ""
+echo " => Running some tests on the running Drupal 8 environment"
+echo ""
+./scripts/test-running-environment.sh
 echo ""
 echo " => Destroying Drupal 9"
 echo ""
