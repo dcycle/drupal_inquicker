@@ -1,2 +1,3 @@
 .DS_Store
 /unversioned-development-settings/settings.php
+.phpunit.result.cache

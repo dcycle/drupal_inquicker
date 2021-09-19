@@ -9,13 +9,17 @@ echo " => Running fast tests"
 echo ""
 ./scripts/test.sh
 echo ""
-echo " => Making sure we have Drupal-9-incompatible code"
+echo " => Making sure we have no Drupal-9-incompatible code"
 echo ""
 ./scripts/php-drupal9.sh
 echo ""
 echo " => Deploying Drupal 8"
 echo ""
 ./scripts/deploy.sh
+echo ""
+echo " => Running unit tests on Drupal 8"
+echo ""
+./scripts/php-unit-drupal.sh
 echo ""
 echo " => Destroying Drupal 8"
 echo ""
@@ -24,6 +28,10 @@ echo ""
 echo " => Deploying Drupal 9"
 echo ""
 ./scripts/deploy.sh 9
+echo ""
+echo " => Running unit tests on Drupal 9"
+echo ""
+./scripts/php-unit-drupal.sh
 echo ""
 echo " => Destroying Drupal 9"
 echo ""

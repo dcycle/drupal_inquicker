@@ -1,22 +1,22 @@
 <?php
 
-namespace Drupal\drupal_inquicker\Tests\Source;
+namespace Drupal\Tests\drupal_inquicker\Unit\Source;
 
-use Drupal\drupal_inquicker\Formatter\ScheduleListFormatter;
+use Drupal\drupal_inquicker\Source\DummySource;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test ScheduleListFormatter.
+ * Test DummySource.
  *
- * @group myproject
+ * @group drupal_inquicker
  */
-class ScheduleListFormatterTest extends TestCase {
+class DummySourceTest extends TestCase {
 
   /**
    * Smoke test.
    */
   public function testSmoke() {
-    $object = $this->getMockBuilder(ScheduleListFormatter::class)
+    $object = $this->getMockBuilder(DummySource::class)
       // NULL = no methods are mocked; otherwise list the methods here.
       ->setMethods([])
       ->disableOriginalConstructor()
