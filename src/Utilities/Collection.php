@@ -68,7 +68,7 @@ abstract class Collection implements \IteratorAggregate, \Countable {
    * @return \ArrayIterator
    *   An array iterator.
    */
-  public function getIterator() {
+  public function getIterator(): \Traversable {
     return new \ArrayIterator($this->items);
   }
 
