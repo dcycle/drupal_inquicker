@@ -1,6 +1,8 @@
 Drupal Inquicker
 =====
 
+**NO LONGER MAINTAINED AS OF 2022-09-20**
+
 [![CircleCI](https://circleci.com/gh/dcycle/drupal_inquicker/tree/2.x.svg?style=svg)](https://circleci.com/gh/dcycle/drupal_inquicker/tree/2.x)
 
 Allows you to interact with the [Inquicker API v2](https://docs.inquicker.com/api/v2/).
